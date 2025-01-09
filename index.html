@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Invoice Tracking System</title>
+    <link rel="shortcut icon" href="https://appservice.azureedge.net/images/app-service/v4/favicon.ico" type="image/x-icon"/>
+    <link href="https://appservice.azureedge.net/css/app-service/v4/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+    <style>
+        html, body {
+            height: 100%;
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-size: 16px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .navbar {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 1.5rem;
+        }
+        .card {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Invoice Tracker</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Welcome to the Invoice Tracking System</h2>
+                <p>Manage and track your invoices efficiently.</p>
+            </div>
+        </div>
+
+        <!-- Section to Display Invoices -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Invoice List</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Invoice ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data from Azure SQL Database will be populated here -->
+                                <tr>
+                                    <td colspan="5" class="text-center">No invoices found. Connect to your Azure SQL Database.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section to Add a New Invoice -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add New Invoice</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="addInvoiceForm">
+                            <div class="form-group">
+                                <label for="customerName">Customer Name</label>
+                                <input type="text" class="form-control" id="customerName" placeholder="Enter customer name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="invoiceAmount">Amount</label>
+                                <input type="number" class="form-control" id="invoiceAmount" placeholder="Enter invoice amount" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="invoiceStatus">Status</label>
+                                <select class="form-control" id="invoiceStatus">
+                                    <option value="Pending">Pending</option>
+                                    <option value="Paid">Paid</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Invoice</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section to Connect to Azure SQL Database -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Database Connection</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Ensure your Azure SQL Database is connected to display and manage invoices.</p>
+                        <p>Insert your connection string in the backend to establish a secure connection.</p>
+                        <button class="btn btn-primary" id="testConnection">Test Connection</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://appservice.azureedge.net/js/app-service/v4/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById("addInvoiceForm").onsubmit = function (e) {
+            e.preventDefault();
+            alert("This feature is ready for Azure SQL integration!");
+        };
+
+        document.getElementById("testConnection").onclick = function () {
+            alert("Test connection to Azure SQL database placeholder.");
+        };
+    </script>
+</body>
+</html>
